@@ -20,6 +20,6 @@ knitr::opts_chunk$set(
 
 The goal of 'wei_lda_debate' is to build Latent Dirichlet Allocation models based on 'sklearn' and 'gensim' framework, and Dynamic Topic Model based on 'gensim' framework.
 I decide to build a Python package, so this reposority will be updated.
-The new reposority path is github.com/JiaxiangBU/dynamic_topic_modeling.
+The new reposority path is <https://github.com/JiaxiangBU/dynamic_topic_modeling.git>.
 
 `r add2pkg::add_disclaimer("Jiaxiang Li")`
