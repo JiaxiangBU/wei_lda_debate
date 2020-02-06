@@ -10,7 +10,8 @@
 The goal of ‘wei\_lda\_debate’ is to build Latent Dirichlet Allocation
 models based on ‘sklearn’ and ‘gensim’ framework, and Dynamic Topic
 Model based on ‘gensim’ framework. I decide to build a Python package,
-so this reposority will be updated.
+so this reposority will be updated. The new reposority path is
+github.com/JiaxiangBU/dynamic\_topic\_modeling.
 
 <h4 align="center">
 
