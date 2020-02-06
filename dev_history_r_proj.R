@@ -1,3 +1,10 @@
+# update template ---------------------------------------------------------
+
+library(fs)
+file_copy("../dev_history/refs/dev_history_r_proj.R",
+          ".",
+          overwrite = TRUE)
+
 # setup -------------------------------------------------------------------
 
 library(devtools)
@@ -43,7 +50,7 @@ if (file.exists("README.Rmd")) {
     file.edit("README-bak.Rmd")
 }
 use_readme_rmd(open = FALSE)
-read_lines("README.Rmd")[1:20] %>%
+read_lines("README.Rmd")[1:22] %>%
     c("") %>%
     c('`r add2pkg::add_disclaimer("Jiaxiang Li")`') %>%
     write_lines("README.Rmd")
@@ -92,9 +99,30 @@ git2r::push(name = 'origin', refspec = "refs/heads/master",
             cred = git2r::cred_token()
             )
 
+
+# delete object -----------------------------------------------------------
+
+rm("author_info")
+rm("desc_lines")
+
 # update template ---------------------------------------------------------
 
 library(fs)
 file_copy("dev_history_r_proj.R", "../dev_history/refs/dev_history_r_proj.R",
           overwrite = TRUE)
-# open it!
+repo <-  git2r::repository("../dev_history/")
+repo %>% git2r::status()
+repo %>% git2r::add(path = ".")
+repo %>% git2r::status()
+repo %>% git2r::commit(message = "Update r proj dev history.")
+repo %>% git2r::push(name = 'origin', refspec = "refs/heads/master", cred = git2r::cred_token())
+rm("repo")
+
+
+# update local ------------------------------------------------------------
+
+git2r::status()
+git2r::add(path = "dev_history_r_proj.R")
+git2r::status()
+git2r::commit(message = "Update r proj dev history.")
+git2r::push(name = 'origin', refspec = "refs/heads/master", cred = git2r::cred_token())
